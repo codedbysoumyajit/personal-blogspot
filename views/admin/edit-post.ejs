@@ -1,0 +1,57 @@
+
+<div class="row mt-4">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <h4>Edit Blog Post</h4>
+            </div>
+            <div class="card-body">
+                <form action="/admin/posts/<%= post._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" value="<%= post.title %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Short Description (for homepage card)</label>
+                        <textarea class="form-control" id="description" name="description" rows="3" required><%= post.description %></textarea>
+                        <div class="form-text">A concise summary for the blog card on the homepage.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="author" class="form-label">Author Name</label> <input type="text" class="form-control" id="author" name="author" value="<%= post.author %>">
+                        <div class="form-text">The name that will appear as the author of the post.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location (Optional)</label> <input type="text" class="form-control" id="location" name="location" value="<%= post.location || '' %>">
+                        <div class="form-text">E.g., "New York, USA" or "Online".</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Content</label>
+                        <textarea class="form-control" id="content" name="content" rows="10" required><%= post.content %></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="postImage" class="form-label">Header Image (Optional)</label>
+                        <% if (post.imageUrl) { %>
+                            <div class="mb-2">
+                                <p>Current Image:</p>
+                                <img src="<%= post.imageUrl %>" alt="<%= post.title %>" class="img-thumbnail" style="max-width: 200px; height: auto;">
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="removeImage" name="removeImage" value="true">
+                                <label class="form-check-label" for="removeImage">
+                                    Remove current image
+                                </label>
+                            </div>
+                            <input type="hidden" name="existingImageUrl" value="<%= post.imageUrl %>">
+                        <% } %>
+                        <input type="file" class="form-control" id="postImage" name="postImage" accept="image/*">
+                        <div class="form-text">Max 5MB. Accepts JPG, PNG, GIF. Uploading a new image will replace the current one.</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Update Post</button>
+                    <a href="/admin/dashboard" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

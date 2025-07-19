@@ -1,0 +1,28 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+
+# Environment variables
+.env
+
+# Uploaded files
+public/uploads/
+
+# Production Build (if you ever build a static frontend for deployment)
+build/
+dist/
+
+# Editor/OS Specific
+.DS_Store
+.vscode/ # VS Code settings
+*.sublime-project
+*.sublime-workspace
+.idea/ # IntelliJ/WebStorm IDE settings
+.nyc_output/ # Test coverage
+.grunt/
+.sass-cache/
+.eslintcache

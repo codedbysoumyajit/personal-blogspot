@@ -1,0 +1,41 @@
+
+<div class="row mt-4">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <h4>Create New Blog Post</h4>
+            </div>
+            <div class="card-body">
+                <form action="/admin/posts" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Short Description (for homepage card)</label>
+                        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                        <div class="form-text">A concise summary for the blog card on the homepage.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="author" class="form-label">Author Name</label> <input type="text" class="form-control" id="author" name="author" value="Admin"> <div class="form-text">The name that will appear as the author of the post.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location (Optional)</label> <input type="text" class="form-control" id="location" name="location">
+                        <div class="form-text">E.g., "New York, USA" or "Online".</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Content</label>
+                        <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="postImage" class="form-label">Header Image (Optional)</label>
+                        <input type="file" class="form-control" id="postImage" name="postImage" accept="image/*">
+                        <div class="form-text">Max 5MB. Accepts JPG, PNG, GIF.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Publish Post</button>
+                    <a href="/admin/dashboard" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
